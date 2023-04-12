@@ -13,6 +13,8 @@
 		6E8B584729E74CFC0047E745 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E8B584529E74CFC0047E745 /* Main.storyboard */; };
 		6E8B584929E74CFE0047E745 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E8B584829E74CFE0047E745 /* Assets.xcassets */; };
 		6E8B584C29E74CFE0047E745 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E8B584A29E74CFE0047E745 /* LaunchScreen.storyboard */; };
+		6E8B585829E74D840047E745 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B585729E74D840047E745 /* NetworkManager.swift */; };
+		6E8B585B29E74D9F0047E745 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B585A29E74D9F0047E745 /* Beer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		6E8B584829E74CFE0047E745 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6E8B584B29E74CFE0047E745 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6E8B584D29E74CFE0047E745 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6E8B585729E74D840047E745 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		6E8B585A29E74D9F0047E745 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,57 @@
 		6E8B583E29E74CFC0047E745 /* BeerProject */ = {
 			isa = PBXGroup;
 			children = (
-				6E8B583F29E74CFC0047E745 /* AppDelegate.swift */,
-				6E8B584129E74CFC0047E745 /* SceneDelegate.swift */,
-				6E8B584329E74CFC0047E745 /* ViewController.swift */,
-				6E8B584529E74CFC0047E745 /* Main.storyboard */,
+				6E8B585929E74D8A0047E745 /* Models */,
+				6E8B585629E74D6C0047E745 /* Services */,
+				6E8B585329E74D070047E745 /* App */,
+				6E8B585529E74D1B0047E745 /* ViewControllers */,
+				6E8B585429E74D110047E745 /* StoryBoards */,
 				6E8B584829E74CFE0047E745 /* Assets.xcassets */,
-				6E8B584A29E74CFE0047E745 /* LaunchScreen.storyboard */,
-				6E8B584D29E74CFE0047E745 /* Info.plist */,
 			);
 			path = BeerProject;
+			sourceTree = "<group>";
+		};
+		6E8B585329E74D070047E745 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6E8B583F29E74CFC0047E745 /* AppDelegate.swift */,
+				6E8B584129E74CFC0047E745 /* SceneDelegate.swift */,
+				6E8B584D29E74CFE0047E745 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6E8B585429E74D110047E745 /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				6E8B584529E74CFC0047E745 /* Main.storyboard */,
+				6E8B584A29E74CFE0047E745 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		6E8B585529E74D1B0047E745 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E8B584329E74CFC0047E745 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6E8B585629E74D6C0047E745 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6E8B585729E74D840047E745 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6E8B585929E74D8A0047E745 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6E8B585A29E74D9F0047E745 /* Beer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8B585829E74D840047E745 /* NetworkManager.swift in Sources */,
 				6E8B584429E74CFC0047E745 /* ViewController.swift in Sources */,
+				6E8B585B29E74D9F0047E745 /* Beer.swift in Sources */,
 				6E8B584029E74CFC0047E745 /* AppDelegate.swift in Sources */,
 				6E8B584229E74CFC0047E745 /* SceneDelegate.swift in Sources */,
 			);
@@ -289,12 +337,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = USCX539P25;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BeerProject/Info.plist;
+				INFOPLIST_FILE = BeerProject/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +350,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RBA.BeerProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +368,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = USCX539P25;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = BeerProject/Info.plist;
+				INFOPLIST_FILE = BeerProject/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +381,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = RBA.BeerProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
