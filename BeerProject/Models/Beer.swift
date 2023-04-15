@@ -15,6 +15,13 @@ struct Beer: Decodable {
     let ingredients: Ingredients
     let foodPairing: [String]
     let contributedBy: String
+    
+//    var descriptionOfBeer: String {
+//        """
+//        Description:
+//        \(description)
+//        """
+//    }
 }
 
 struct Ingredients: Decodable {
