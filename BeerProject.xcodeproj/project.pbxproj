@@ -17,6 +17,9 @@
 		6E8B585D29E997EA0047E745 /* BeerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B585C29E997EA0047E745 /* BeerListViewController.swift */; };
 		6E8B586029EACE6C0047E745 /* BeerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B585F29EACE6C0047E745 /* BeerViewCell.swift */; };
 		6E8B586229EAD82F0047E745 /* BeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B586129EAD82F0047E745 /* BeerViewController.swift */; };
+		6E8B586429EB48BF0047E745 /* LikeBeerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B586329EB48BF0047E745 /* LikeBeerCollectionViewController.swift */; };
+		6E8B586629EB4CE80047E745 /* LikeBeerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B586529EB4CE80047E745 /* LikeBeerViewCell.swift */; };
+		6E8B586829EB58C90047E745 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8B586729EB58C90047E745 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		6E8B585C29E997EA0047E745 /* BeerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerListViewController.swift; sourceTree = "<group>"; };
 		6E8B585F29EACE6C0047E745 /* BeerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewCell.swift; sourceTree = "<group>"; };
 		6E8B586129EAD82F0047E745 /* BeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerViewController.swift; sourceTree = "<group>"; };
+		6E8B586329EB48BF0047E745 /* LikeBeerCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBeerCollectionViewController.swift; sourceTree = "<group>"; };
+		6E8B586529EB4CE80047E745 /* LikeBeerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeBeerViewCell.swift; sourceTree = "<group>"; };
+		6E8B586729EB58C90047E745 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 			children = (
 				6E8B585C29E997EA0047E745 /* BeerListViewController.swift */,
 				6E8B586129EAD82F0047E745 /* BeerViewController.swift */,
+				6E8B586329EB48BF0047E745 /* LikeBeerCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				6E8B585729E74D840047E745 /* NetworkManager.swift */,
+				6E8B586729EB58C90047E745 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -123,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				6E8B585F29EACE6C0047E745 /* BeerViewCell.swift */,
+				6E8B586529EB4CE80047E745 /* LikeBeerViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,12 +208,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E8B585D29E997EA0047E745 /* BeerListViewController.swift in Sources */,
+				6E8B586629EB4CE80047E745 /* LikeBeerViewCell.swift in Sources */,
 				6E8B585829E74D840047E745 /* NetworkManager.swift in Sources */,
 				6E8B586229EAD82F0047E745 /* BeerViewController.swift in Sources */,
 				6E8B586029EACE6C0047E745 /* BeerViewCell.swift in Sources */,
 				6E8B585B29E74D9F0047E745 /* Beer.swift in Sources */,
 				6E8B584029E74CFC0047E745 /* AppDelegate.swift in Sources */,
+				6E8B586829EB58C90047E745 /* StorageManager.swift in Sources */,
 				6E8B584229E74CFC0047E745 /* SceneDelegate.swift in Sources */,
+				6E8B586429EB48BF0047E745 /* LikeBeerCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

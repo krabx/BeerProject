@@ -10,6 +10,7 @@ import UIKit
 class BeerListViewController: UITableViewController {
     
     private let networkManager = NetworkManager.shared
+    private let storageManager = StorageManager.shared
     
     private var beers: [Beer] = []
 
@@ -41,8 +42,9 @@ class BeerListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let likeButton = UIContextualAction(style: .normal, title: "Like") { _, _, isLike in
-            // TODO: likeMethod
+        let likeButton = UIContextualAction(style: .normal, title: "Like") { [unowned self] _, _, isLike in
+            //likeBeer.append(beers[indexPath.row])
+            storageManager.save(beer: beers[indexPath.row])
             isLike(true)
         }
         
@@ -58,7 +60,12 @@ class BeerListViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         beerVC.beer = beers[indexPath.row]
     }
-
+    
+    @IBAction func likeButtonPressed(_ sender: Any) {
+    }
+    
+    
+    
 }
 
 extension BeerListViewController {
