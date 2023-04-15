@@ -33,7 +33,24 @@ class BeerListViewController: UITableViewController {
         
         return cell
     }
-
+    
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let likeButton = UIContextualAction(style: .normal, title: "Like") { _, _, isLike in
+            // TODO: likeMethod
+            isLike(true)
+        }
+        
+        likeButton.image = UIImage(systemName: "hand.thumbsup")
+        
+        return UISwipeActionsConfiguration(actions: [likeButton])
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
