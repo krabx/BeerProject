@@ -56,5 +56,3 @@ extension Beer {
 struct Note {
     let note: String
 }
-
-var likeBeer: [Beer] = []

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BeerViewController: UIViewController {
+final class BeerViewController: UIViewController {
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var contributeLabel: UILabel!
     
@@ -45,6 +45,10 @@ class BeerViewController: UIViewController {
     
     private func setupLabels() {
         navigationItem.title = beer.name
+        
+        // TODO: - lines in title
+        // create lines
+        
         descriptionLabel.text = beer.description
         contributeLabel.text = beer.contributedBy
         contributeLabel.textAlignment = .center

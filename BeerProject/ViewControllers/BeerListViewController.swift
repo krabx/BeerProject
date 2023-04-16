@@ -7,30 +7,41 @@
 
 import UIKit
 
-class BeerListViewController: UITableViewController {
+final class BeerListViewController: UITableViewController {
     
     private let networkManager = NetworkManager.shared
     private let storageManager = StorageManager.shared
-    
+    private let searchController = UISearchController(searchResultsController: nil)
     private var beers: [Beer] = []
+    private var searchBeer: [Beer] = []
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        searchController.isActive && !searchBarIsEmpty
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 70
+        tableView.rowHeight = 80
+        setupSearchController()
         fetchBeer()
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        beers.count
+        isFiltering ? searchBeer.count : beers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "beerCell", for: indexPath)
         guard let cell = cell as? BeerViewCell else { return UITableViewCell() }
         
-        cell.configure(with: beers[indexPath.row])
+        isFiltering
+            ? cell.configure(with: searchBeer[indexPath.row])
+            : cell.configure(with: beers[indexPath.row])
         
         return cell
     }
@@ -44,7 +55,9 @@ class BeerListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let likeButton = UIContextualAction(style: .normal, title: "Like") { [unowned self] _, _, isLike in
             //likeBeer.append(beers[indexPath.row])
-            storageManager.save(beer: beers[indexPath.row])
+            isFiltering
+                ? storageManager.save(beer: searchBeer[indexPath.row])
+                : storageManager.save(beer: beers[indexPath.row])
             isLike(true)
         }
         
@@ -58,14 +71,8 @@ class BeerListViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let beerVC = segue.destination as? BeerViewController else { return }
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
-        beerVC.beer = beers[indexPath.row]
+        beerVC.beer = isFiltering ? searchBeer[indexPath.row] : beers[indexPath.row]
     }
-    
-    @IBAction func likeButtonPressed(_ sender: Any) {
-    }
-    
-    
-    
 }
 
 extension BeerListViewController {
@@ -79,5 +86,28 @@ extension BeerListViewController {
                 print(error)
             }
         }
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.barTintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+}
+
+extension BeerListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterDataBySearchText(searchController.searchBar.text ?? "")
+    }
+    
+    private func filterDataBySearchText(_ searchText: String) {
+        searchBeer = beers.filter { beer in
+            beer.name.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
     }
 }

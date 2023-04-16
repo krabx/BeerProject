@@ -11,9 +11,13 @@ final class LikeBeerViewCell: UICollectionViewCell {
     
     private let networkManager = NetworkManager.shared
     
+    @IBOutlet var likeBeerNameLabel: UILabel!
+    
     @IBOutlet var beerImage: UIImageView!
     
     func configure(with beer: Beer) {
+        likeBeerNameLabel.text = beer.name
+        
         networkManager.fetchData(from: beer.imageURL) { [weak self] result in
             switch result {
             case .success(let imageData):
