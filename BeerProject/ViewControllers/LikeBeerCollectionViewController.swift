@@ -12,10 +12,10 @@ final class LikeBeerCollectionViewController: UICollectionViewController {
     private let storageManager = StorageManager.shared
     
     private var likeBeers: [Beer] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        likeBeers = storageManager.fetchLike()
+        setLikeBeers()
     }
 
     /*
@@ -45,7 +45,17 @@ final class LikeBeerCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+        storageManager.delete(at: indexPath.row)
+        setLikeBeers()
+        collectionView.deleteItems(at: [indexPath])
+        collectionView.reloadSections(IndexSet(integer: indexPath.section))
+        print(indexPath, indexPath.section)
     }
+    
+    private func setLikeBeers() {
+        likeBeers = storageManager.fetchLike()
+    }
+
 }
 
 extension LikeBeerCollectionViewController: UICollectionViewDelegateFlowLayout {

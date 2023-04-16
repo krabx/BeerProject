@@ -33,7 +33,10 @@ final class StorageManager {
         return likeBeers
     }
     
-    // TODO: - create func
-    func delete() {
+    func delete(at index: Int) {
+        var likeBeers = fetchLike()
+        likeBeers.remove(at: index)
+        guard let data = try? JSONEncoder().encode(likeBeers) else { return }
+        userDefaults.set(data, forKey: key)
     }
 }
